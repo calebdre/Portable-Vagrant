@@ -18,10 +18,10 @@ class nginx {
 
 	# Add vhost template
 	file { 'vagrant-nginx':
-	    path => '/etc/nginx/sites-available/127.0.0.1',
+	    path => '/etc/nginx/sites-available/localhost',
 	    ensure => file,
 	    require => Package['nginx'],
-	    source => 'puppet:///modules/nginx/127.0.0.1',
+	    source => 'puppet:///modules/nginx/localhost',
 	}
 
 	# Disable default nginx vhost
@@ -33,8 +33,8 @@ class nginx {
 
 	# Symlink our vhost in sites-enabled
 	file { 'vagrant-nginx-enable':
-	    path => '/etc/nginx/sites-enabled/127.0.0.1',
-	    target => '/etc/nginx/sites-available/127.0.0.1',
+	    path => '/etc/nginx/sites-enabled/localhost',
+	    target => '/etc/nginx/sites-available/localhost',
 	    ensure => link,
 	    notify => Service['nginx'],
 	    require => [
