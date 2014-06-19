@@ -5,7 +5,7 @@ Need a development environment you can spin up and use anywhere? Here's one!
 ### Usage
 1. Install [Virtual Box](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/downloads.html)
 2. Make a project directory and `cd` into it
-3. execute `git clone git@github.com:calebdre/Vagrant-Personal-Box.git ./`
+3. execute `git clone git@github.com:calebdre/Portable-Vagrant.git ./`
 4. execute `vagrant up`
 5. Check out the php info page at *[localhost:5000](http://localhost:5000)*
 6. Start hacking away in the app folder
