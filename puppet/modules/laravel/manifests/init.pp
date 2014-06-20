@@ -14,6 +14,10 @@ class laravel {
 		require => Service['nginx']
 	}
 
+	file { "/var/www/app/index.php":
+		ensure => absent,
+	}
+
 	file { "error-log":
 		ensure => file,
 		path => "/var/log/nginx/laravel/error.log",
@@ -33,19 +37,6 @@ class laravel {
 		notify => Service['nginx'],
 	}
 
-	file { "/var/www/app/public":
-		ensure => directory,
-	}
-
-	file { "/var/www/app/public/index.php":
-		ensure => file,
-		source => '/vagrant/app/index.php'
-	}
-
-	file { "/var/www/app/index.php":
-		ensure => absent,
-		require => File['/var/www/app/public/index.php'],
-	}
 
 	exec { "remove localhost":
 		command => "rm /etc/nginx/sites-enabled/localhost",
