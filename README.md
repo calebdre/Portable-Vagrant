@@ -13,7 +13,7 @@ Need a development environment you can spin up and use anywhere? Here's one!
 
 
 ##### This box includes the following:
-#### PHP 5
+#### [PHP 5](http://php.net)
 With modules:
 - fpm
 - cli
@@ -47,3 +47,4 @@ With gems:
 #### [MySql](http://www.mysql.com/)
 user: root
 password: ""
+database name: database
