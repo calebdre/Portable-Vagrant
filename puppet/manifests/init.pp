@@ -1,4 +1,4 @@
-Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
+Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", 'bin/sh' ] }
 
 exec { 'apt-get update':
   command => 'sudo apt-get update',
@@ -12,7 +12,7 @@ package { "git":
 	ensure => installed,
 }
 
-package{ "sqlite":
+package{ "sqlite3":
     ensure  => present,
     require => Exec['apt-get update']
 }
@@ -28,4 +28,11 @@ file { '/var/www/':
   ensure => 'directory',
 }
 
+$project = ""
+
 include nginx, php55, composer, ruby, nodejs
+
+# - Optional Laravel install
+if $project == "laravel" {
+	include laravel
+}

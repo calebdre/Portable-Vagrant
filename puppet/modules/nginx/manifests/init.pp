@@ -17,12 +17,15 @@ class nginx {
 	}
 
 	# Add vhost template
-	file { 'vagrant-nginx':
-	    path => '/etc/nginx/sites-available/localhost',
-	    ensure => file,
-	    require => Package['nginx'],
-	    source => 'puppet:///modules/nginx/localhost',
+	if $project == "" {
+		file { 'vagrant-nginx':
+		    path => '/etc/nginx/sites-available/localhost',
+		    ensure => file,
+		    require => Package['nginx'],
+		    source => 'puppet:///modules/nginx/localhost',
+		}
 	}
+
 
 	# Disable default nginx vhost
 	file { 'default-nginx-disable':
@@ -38,7 +41,6 @@ class nginx {
 	    ensure => link,
 	    notify => Service['nginx'],
 	    require => [
-	        File['vagrant-nginx'],
 	        File['default-nginx-disable'],
 	    ],
 	}

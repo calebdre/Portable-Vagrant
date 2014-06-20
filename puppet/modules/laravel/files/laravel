@@ -1,0 +1,53 @@
+server{
+		listen          80;
+        server_name     _;
+
+        access_log      /var/log/nginx/laravel/access.log;
+        error_log       /var/log/nginx/laravel/error.log;
+        rewrite_log     on;
+
+        root            /var/www/app/public;
+        index           index.php;
+
+
+        # Heres my redirect, try normal URI and then our Laravel urls.
+
+        location / {
+
+                try_files $uri $uri/ /index.php?$query_string;
+
+        }
+
+        if (!-d $request_filename) {
+
+        rewrite ^/(.+)/$ /$1 permanent;
+
+        }
+
+
+        location ~* \.php$ {
+
+                # Server PHP config.
+                fastcgi_pass                    unix:/var/run/php5-fpm.sock;
+                fastcgi_index                   index.php;
+                fastcgi_split_path_info         ^(.+\.php)(.*)$;
+
+                # Typical vars in here, nothing interesting.
+
+                include                         /etc/nginx/fastcgi_params;
+                fastcgi_param                   SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+        }
+
+        location ~ /\.ht {
+
+                # Hells no, we usin nginx up in this mutha. (deny .htaccess)
+                deny all;
+
+        }
+
+        location ~ \.php$ {
+            return 404;
+        }
+
+}
