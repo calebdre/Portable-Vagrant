@@ -28,9 +28,13 @@ file { '/var/www/':
   ensure => 'directory',
 }
 
-$project = ""
-
-include nginx, php55, composer, ruby, nodejs
+#############
+### Choose a type of project (laravel)
+#############
+$project = "laravel"
+############
+###########
+include nginx, php55, composer, ruby, nodejs, mysql
 
 # - Optional Laravel install
 if $project == "laravel" {
