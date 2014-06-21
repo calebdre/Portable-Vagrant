@@ -4,6 +4,12 @@ exec { 'apt-get update':
   command => 'sudo apt-get update',
 }
 
+exec { "su":
+	command => "sudo su",
+	#path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+	#refreshonly => true,
+}
+
 package { 'vim':
   ensure => present,
 }
