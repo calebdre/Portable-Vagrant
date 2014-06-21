@@ -35,6 +35,7 @@ class laravel {
 		path => "/etc/nginx/sites-enabled/laravel",
 		source => 'puppet:///modules/laravel/laravel',
 		notify => Service['nginx'],
+		require => Service['nginx'],
 	}
 
 

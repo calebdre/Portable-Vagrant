@@ -16,7 +16,7 @@ class php55
 	}
 
 	exec { "add php5":
-		command => "apt-get install php5 php5-cli php5-fpm php5-mysql php5-sqlite php5-mcrypt php5-curl -y",
+		command => "sudo apt-get install php5 php5-cli php5-fpm php5-mysql php5-sqlite php5-mcrypt php5-curl -y",
 		#path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
 		#refreshonly => true,
 		require => Exec["php55 apt update"]

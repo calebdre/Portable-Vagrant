@@ -26,15 +26,15 @@ With modules:
 
 #### [Composer](https://getcomposer.org)
 
-#### [Laravel Option](http://laravel.com)
+#### [Laravel Configuration](http://laravel.com)
 In order to use a laravel configuration, follow these steps:  
 1. Edit the `puppet\manifests\init.pp` file  
 2. Toward the bottom, fill in the `project` variable with `laravel`  
 3. execute `vagrant up`  
 4. execute `cd app`  
-5. execute `composer create-project laravel/laravel ./`  
+5. execute `composer create-project laravel/laravel ./`
 6. execute `chmod -R 777 app/storage`  
-7. Make something amazing!
+7. Check out [http://localhost:5000](http://localhost:5000)
 #### [NodeJs](https://getcomposer.org/)
 With npm modules:
 - [Grunt](http://gruntjs.com)
