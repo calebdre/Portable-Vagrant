@@ -7,28 +7,10 @@ class laravel {
 		ensure => installed,
 	}
 
-	file { "/var/log/nginx/laravel":
-		ensure => directory,
-		#path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
-		#refreshonly => true,
-		require => Service['nginx']
-	}
-
 	file { "/var/www/app/index.php":
 		ensure => absent,
 	}
 
-	file { "error-log":
-		ensure => file,
-		path => "/var/log/nginx/laravel/error.log",
-		require => File['/var/log/nginx/laravel'],
-	}
-
-	file { "access-log":
-		ensure => file,
-		path => "/var/log/nginx/laravel/access.log",
-		require => File['/var/log/nginx/laravel'],
-	}
 
 	file { "laravel config":
 		ensure => file,

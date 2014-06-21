@@ -2,8 +2,6 @@ server{
 		listen          80;
         server_name     _;
 
-        access_log      /var/log/nginx/laravel/access.log;
-        error_log       /var/log/nginx/laravel/error.log;
         rewrite_log     on;
 
         root            /var/www/app/public;
