@@ -40,7 +40,7 @@ file { '/var/www/':
 $project = ""
 ############
 ###########
-include nginx, php55, composer, ruby, nodejs, mysql
+include nginx, php55, composer#, ruby, nodejs, mysql
 
 # - Optional Laravel install
 if $project == "laravel" {

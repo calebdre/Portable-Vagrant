@@ -21,4 +21,25 @@ class php55
 		#refreshonly => true,
 		require => [Exec["php55 apt update"], Exec['su']]
 	}
+
+	service { "php5-fpm":
+		enable => true,
+		ensure => running,
+		require => Exec['add php5']
+	}
+	file { "www.conf":
+		ensure => file,
+		path => "/etc/php5/fpm/pool.d/www.conf",
+		source => 'puppet:///modules/php55/www.conf',
+		notify => Service['php5-fpm'],
+		require => Exec['add php5']
+	}
+
+	file { "php.ini":
+		ensure => file,
+		path => "/etc/php5/fpm/php.ini",
+		source => "puppet:///modules/php55/php.ini",
+		notify => Service['php5-fpm'],
+		require => Exec['add php5']
+	}
 }
