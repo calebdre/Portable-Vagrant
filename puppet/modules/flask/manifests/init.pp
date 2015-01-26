@@ -4,6 +4,11 @@ class flask{
         require => [Package['python-software-properties']],
     }
 
+    exec{ "flask":
+        command => "pip install flask flask-sqlalchemy",
+        require => Package['python-pip']
+    }
+
 
     # exec { "make-default-python":
     #     command => "/usr/sbin/update-alternatives --install /usr/bin/python python /usr/bin/python2.7 3",
