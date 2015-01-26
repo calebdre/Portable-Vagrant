@@ -1,9 +1,10 @@
 class nginx {
 
 	# Symlink guest /var/www/app to host /vagrant
+
 	file { '/var/www/app':
-	  ensure  => 'link',
-	  target  => '/vagrant/app',
+		ensure  => 'link',
+		target  => '/vagrant/app',
 	}
 
 	package { 'nginx':
@@ -17,12 +18,21 @@ class nginx {
 	}
 
 	# Add vhost template
-	if $project == "" {
+	if $project == "php" {
 		file { 'vagrant-nginx':
 		    path => '/etc/nginx/sites-available/localhost',
 		    ensure => file,
 		    require => Package['nginx'],
 		    source => 'puppet:///modules/nginx/localhost',
+		}
+	}
+
+	if $project == "flask"{
+		file { 'vagrant-nginx':
+			path => '/etc/nginx/sites-available/localhost',
+			ensure => file,
+			require => Package['nginx'],
+			source => 'puppet:///modules/nginx/flask'
 		}
 	}
 

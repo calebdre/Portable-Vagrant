@@ -29,6 +29,7 @@ package { "curl":
 
 package{ "python-software-properties":
 		ensure => present,
+        require => Exec["apt-get update"]
 }
 file { '/var/www/':
   ensure => 'directory',
@@ -37,12 +38,23 @@ file { '/var/www/':
 #############
 ### Choose a type of project (laravel)
 #############
-$project = ""
+$project = "flask"
 ############
 ###########
-include nginx, php55, composer#, ruby, nodejs, mysql
+include nginx, mysql# ruby, nodejs
+
+if $project == "php"{
+    include php55
+    include composer
+}
 
 # - Optional Laravel install
 if $project == "laravel" {
-	include laravel
+    include php55
+    include composer
+    include laravel
+}
+
+if $project == "flask"{
+    include flask
 }
