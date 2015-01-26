@@ -49,7 +49,7 @@ In order to set up flask, follow these steps:
 5. check out [http://localhost:5000](http://localhost:5000)  
 
 #### [Laravel Configuration](http://laravel.com)
-In order to use a laravel configuration, follow these steps:  
+In order to use a laravel configuration, follow these steps:    
 1. Edit `$project` variable in the `puppet\manifests\init.pp` file, setting it to `laravel`  
 2. execute `vagrant up`  
 3. execute `cd app`  
