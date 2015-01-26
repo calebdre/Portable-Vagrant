@@ -34,13 +34,13 @@ password: ""
 database name: database  
 
 
-#### [PHP 5](http://php.net)
+#### [PHP 5](http://php.net)  
 In order to set up PHP, follow these steps:
 1. Edit the `$project` variable in the `puppet\manifests\init.pp` file, setting it to `php`  
 2. run `vagrant up`  
 3. check out [http://localhost:5000](http://localhost:5000)  
 
-### [Python/Flask](flask.pocoo.org)
+### [Python/Flask](flask.pocoo.org)  
 In order to set up flask, follow these steps:
 1. Edit the `$project` variable in the `puppet\manifests\init.pp` file, setting it to `flask`  
 2. execute `vagrant up`  
