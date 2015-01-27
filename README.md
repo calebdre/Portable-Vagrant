@@ -1,9 +1,8 @@
 # Portable Vagrant Box
 
-Need a development environment you can spin up and use anywhere? Here's one!
+Need a way to set up a development environment really easily? Here's one!
 
 ### Usage  
-*Note: Scroll down to see about getting a laravel configuration*  
 1. Install [Virtual Box](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/downloads.html)  
 2. Make a project directory and `cd` into it  
 3. execute `git clone git@github.com:calebdre/Portable-Vagrant.git ./`  
