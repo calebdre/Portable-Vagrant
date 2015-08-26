@@ -35,6 +35,15 @@ class nginx {
 			source => 'puppet:///modules/nginx/flask'
 		}
 	}
+	
+	if $project == "wordpress"{
+		file { 'vagrant-nginx':
+			path => '/etc/nginx/sites-available/localhost',
+			ensure => file,
+			require => Package['nginx'],
+			source => 'puppet:///modules/nginx/wordpress'
+		}
+	}
 
 
 	# Disable default nginx vhost

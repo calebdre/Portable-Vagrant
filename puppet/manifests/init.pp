@@ -27,6 +27,10 @@ package { "curl":
 	ensure => installed,
 }
 
+package { "wget":
+	ensure => installed,
+}
+
 package{ "python-software-properties":
 		ensure => present,
         require => Exec["apt-get update"]
@@ -38,7 +42,7 @@ file { '/var/www/':
 #############
 ### Choose a type of project (laravel)
 #############
-$project = "flask"
+$project = "wordpress"
 ############
 ###########
 include nginx, mysql# ruby, nodejs
@@ -57,4 +61,9 @@ if $project == "laravel" {
 
 if $project == "flask"{
     include flask
+}
+
+if $project == "wordpress"{
+	include php55
+	include wordpress
 }
