@@ -2,11 +2,9 @@ class wordpress
 {
 
 	exec{ 'download wordpress':
-			command => "wget -O /var/www/app/wordpress.tar http://wordpress.org/latest && 
-						tar -zxvf /var/www/app/wordpress.tar -C /var/www/app/ &&
-						mv -f /var/www/app/wordpress/* /var/www/app &&
-						rmdir /var/www/app/wordpress",
-			require => [Package['wget']]
+			command => "rm -rf /var/www/app/* &&
+						git clone https://github.com/WordPress/WordPress.git /var/www/app/",
+			require => [Package['git']]
 	}
 	
 	 exec{"create-wp-db-user":
