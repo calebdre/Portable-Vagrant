@@ -1,9 +1,8 @@
 class wordpress
 {
-
 	exec{ 'download wordpress':
-			command => "rm -rf /var/www/app/* &&
-						git clone https://github.com/WordPress/WordPress.git /var/www/app/",
+			command => "wget -O /var/www/app/wordpress.tar http://wordpress.org/latest && 
+						tar -zxvf /var/www/app/wordpress.tar -C /var/www/app/",
 			require => [Package['git']]
 	}
 	
