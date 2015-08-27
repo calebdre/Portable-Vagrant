@@ -15,6 +15,8 @@ define( 'DB_CHARSET', 'utf8' );
 
 define( 'DB_COLLATE', '' );
 
+$table_prefix  = 'wp_';
+
 
 define('WP_DEBUG', false);
 

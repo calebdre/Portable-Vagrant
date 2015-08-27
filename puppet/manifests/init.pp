@@ -39,6 +39,11 @@ file { '/var/www/':
   ensure => 'directory',
 }
 
+file { '/var/www/app':
+	ensure  => 'link',
+	target  => '/vagrant/app',
+}
+
 #############
 ### Choose a type of project (laravel)
 #############
