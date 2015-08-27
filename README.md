@@ -38,6 +38,23 @@ In order to set up PHP, follow these steps:
 2. run `vagrant up`  
 3. check out [http://localhost:5000](http://localhost:5000)  
 
+### [Wordpress Configuration](http://wordpress.org)
+In order to have a wordpress environment, follow these steps:
+1. Edit `$project` variable in the `puppet\manifests\init.pp` file, setting it to `wordpress`
+2. execute `vagrant up`
+3. Check out [http://localhost:5000](http://localhost:5000)  
+4. Enter a site title, username, and password
+5. Start making wordpress themes!
+
+#### [Laravel Configuration](http://laravel.com)
+In order to use a laravel environment, follow these steps:    
+1. Edit `$project` variable in the `puppet\manifests\init.pp` file, setting it to `laravel`  
+2. execute `vagrant up`  
+3. execute `cd app`  
+4. execute `composer create-project laravel/laravel ./`  
+5. execute `chmod -R 777 app/storage`  
+6. Check out [http://localhost:5000](http://localhost:5000)  
+
 ### [Python/Flask](flask.pocoo.org)  
 In order to set up flask, follow these steps:  
 1. Edit the `$project` variable in the `puppet\manifests\init.pp` file, setting it to `flask`  
@@ -45,12 +62,3 @@ In order to set up flask, follow these steps:
 3. ssh into the vagrant box (execute `vagrant ssh`)  
 4. execute `python /vagrant/app/app.py` inside the vagrant box  
 5. check out [http://localhost:5000](http://localhost:5000)  
-
-#### [Laravel Configuration](http://laravel.com)
-In order to use a laravel configuration, follow these steps:    
-1. Edit `$project` variable in the `puppet\manifests\init.pp` file, setting it to `laravel`  
-2. execute `vagrant up`  
-3. execute `cd app`  
-4. execute `composer create-project laravel/laravel ./`  
-5. execute `chmod -R 777 app/storage`  
-6. Check out [http://localhost:5000](http://localhost:5000)  
