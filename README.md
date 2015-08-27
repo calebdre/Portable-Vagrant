@@ -39,7 +39,7 @@ In order to set up PHP, follow these steps:
 3. check out [http://localhost:5000](http://localhost:5000)  
 
 ### [Wordpress Configuration](http://wordpress.org)
-In order to have a wordpress environment, follow these steps:
+In order to have a wordpress environment, follow these steps:  
 1. Edit `$project` variable in the `puppet\manifests\init.pp` file, setting it to `wordpress`  
 2. execute `vagrant up`  
 3. Check out [http://localhost:5000](http://localhost:5000) 
